@@ -55,9 +55,10 @@ jobs:
           path: ambuild
 
       - name: Install AMBuild
+        working-directory: ambuild
         shell: bash
         run: |
-          python -m pip install --no-build-isolation ./ambuild
+          python setup.py install
 
       - name: Build
         working-directory: extension
