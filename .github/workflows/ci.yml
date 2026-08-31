@@ -102,3 +102,4 @@ jobs:
         with:
           file: '*.zip'
           file_glob: true
+          overwrite: true
