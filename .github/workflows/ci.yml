@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-22.04, windows-2022]
-        sourcemod-version: [1.12-dev]
+        sourcemod-version: [1.13.0.7441]
         include:
           - os: ubuntu-22.04
             target-archs: x86,x86_64
@@ -55,9 +55,10 @@ jobs:
           path: ambuild
 
       - name: Install AMBuild
-        uses: BSFishy/pip-action@v1
-        with:
-          packages: ./ambuild
+        working-directory: ambuild
+        shell: bash
+        run: |
+          python setup.py install
 
       - name: Build
         working-directory: extension
